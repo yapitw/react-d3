@@ -1,14 +1,35 @@
-import React from 'react';
+import React from 'react'
+import Chart from './Chart'
 
-console.log(process.env);
+class App extends React.Component {
+  state = {
+    dataArray: [30, 35, 45, 55, 70],
+  };
 
-export default class App extends React.Component {
+  changeData = () => {
+    const arr = [];
+    const amount = Math.floor(Math.random() * 5) + 5;
+    for (let i = 0; i <= amount; i++) {
+      arr.push(Math.floor(Math.random() * 30) + 20)
+    }
+    console.log(arr)
+    this.setState(state => ({
+      dataArray: arr
+      // dataIndex: (state.dataIndex + 1) % 2
+    }))
+  };
+
   render() {
     return (
       <div>
-        <h1>React App</h1>
-        <p>OK! Let's start!! Go Go Go~</p>
+        <button onClick={this.changeData}>Change data</button>
+        <Chart
+          data={this.state.dataArray}
+          title={'DATASET'}
+        />
       </div>
-    );
+    )
   }
 }
+
+export default App

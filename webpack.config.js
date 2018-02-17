@@ -18,7 +18,7 @@ module.exports = {
           options: {
             presets: ['babel-preset-env', 'babel-preset-react'],
             plugins: [
-              'transform-class-constructor-call',
+              'transform-class-properties',
               'transform-object-rest-spread'
             ]
           }
